@@ -17,6 +17,7 @@ public class Topic_01_CheckEnvironment {
 		System.out.println("Check homepage ");
 		String homePageTitle = driver.getTitle();
 		Assert.assertEquals(homePageTitle, "Guru99 Bank Home Page");
+		system.out.println("changed file");
 
 		System.out.println("Check homepage url");
 		String homePageUrl = driver.getCurrentUrl();
