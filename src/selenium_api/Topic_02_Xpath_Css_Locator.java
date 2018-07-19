@@ -20,7 +20,7 @@ public class Topic_02_Xpath_Css_Locator {
   @Test
   public void f() {
 	  driver.findElement(By.xpath("//input[@id='email']")).sendKeys("ngoc@gmail.com");
-	  driver.findElement(By.xpath("//input[@id='email']")).sendKeys("ngoc@gmail.com");
+
 	  
 	  
   }
