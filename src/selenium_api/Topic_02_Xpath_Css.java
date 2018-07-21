@@ -106,11 +106,31 @@ public class Topic_02_Xpath_Css {
 		Thread.sleep(10000);
 		String titleHomePage = driver.getTitle();
 		Assert.assertEquals(titleHomePage, "Home page");
-		
-		
-		
-		
-		
+	}
+//	Step 01 - Truy cập vào trang: http://live.guru99.com
+//		Step 02 - Kiểm tra title của page là: "Home page"
+//		Step 03 - Click vào link "My Account" để tới trang đăng nhập
+//		Step 04 - Click CREATE AN ACCOUNT button để tới trang đăng kí tài khoản
+//		Step 05 - Back lại trang đăng nhập
+//		Step 06 - Kiểm tra url của page đăng nhập là: http://live.guru99.com/index.php/customer/account/login/
+//		Step 07 - Forward tới trang tạo tài khoản
+//		Step 08 - Kiểm tra url của page tạo tài khoản là: http://live.guru99.com/index.php/customer/account/create/
+	@Test
+	public void TC_05_verifyURLAndTitle() throws InterruptedException
+	{
+		driver.get("http://live.guru99.com/index.php");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		String titleHomePage = driver.getTitle();
+		Assert.assertEquals(titleHomePage, "Home page");
+		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
+		driver.findElement(By.xpath("//a/span[text()='Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Log In']")).click();
+		String Url = driver.getCurrentUrl();
+		Assert.assertEquals(Url, "http://live.guru99.com/index.php/customer/account/login/");
+		driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
+		String UrlCreate = driver.getCurrentUrl();
+		Assert.assertEquals(UrlCreate, "http://live.guru99.com/index.php/customer/account/create/");
 	}
 	@AfterClass
 	public void afterClass() {}
